@@ -22,3 +22,31 @@ body{
     width: 100%;
     max-width: 425px;
 }
+
+h2{
+    text-align: center;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.holderControls{
+    position: relative;
+    margin-bottom: 1.2rem;
+}
+
+.holderControls label{
+    display: block;
+    margin-bottom: 0.4rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.holderControls input{
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    border: 2px solid #ccc;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
