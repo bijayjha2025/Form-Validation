@@ -25,3 +25,35 @@ function validateName{
         return true;
     }
 }
+
+function validateEmail{
+    const email= emailInput.value.trim();
+    const regex= /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(email===""){
+        setError(emailInput, "Email is required");
+        return false;
+    }
+    else if(!regex.test(email)){
+        setError(emailInput, "Please enter a valid email address");
+        return false;
+    }
+    else{
+        setSuccess(emailInput);
+        return true;
+    }
+}
+
+function validatePhone{
+    const phone = phoneInput.value.trim();
+    const regex = /^[0-9]{10}$/;
+    if (phone===""){
+        setError(phoneInput, "Phone number is required");
+        return false;
+    }else if(!regex.test(phone)){
+        setError(phoneInput, "Phone number must be of 10 digits");
+        return false;
+    }else{
+        setSuccess(phoneInput);
+        return true;
+    }
+}
