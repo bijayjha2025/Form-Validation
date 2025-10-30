@@ -66,10 +66,6 @@ h2{
     transition: opacity 0.3s;
 }
 
-.passwordContainer span:hover{
-    opacity: 1;
-}
-
 button{
     width: 100%;
     border: none;
@@ -86,4 +82,11 @@ button{
 
 button:hover{
     background: linear-gradient(135deg, #74ebd5, #4464f5);
+}
+
+.holderControls small{
+    visibility: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
