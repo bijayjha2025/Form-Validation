@@ -57,3 +57,43 @@ function validatePhone{
         return true;
     }
 }
+
+function validatePassword{
+    const password = passwordInput.value.trim();
+    const regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+
+    if(password===""){
+        setError(passwordInput, "Password can not be empty");
+        return false;
+    }
+    else if(!regex.test(password)){
+        setError(passwordInput, "Min 8 chars, 1 capital, 1 number, 1 special character");
+        return false;
+    }
+    else{
+        setSuccess(passwordInput);
+        return true;
+    }
+}
+
+function validateConfirmPassword{
+    const password = passwordInput.value.trim();
+    const regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+
+    if(password===""){
+        setError(passwordInput, "Password can not be empty");
+        return false;
+    }
+    else if(!regex.test(password)){
+        setError(passwordInput, "Min 8 chars, 1 capital, 1 number, 1 special character");
+        return false;
+    }
+    else{
+        setSuccess(passwordInput);
+        return true;
+    }
+}
+
+
+
+
