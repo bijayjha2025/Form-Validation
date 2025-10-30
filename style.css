@@ -90,3 +90,13 @@ button:hover{
     bottom: 0;
     left: 0;
 }
+
+.holderControls.success input{
+    border-color: #2ecc71;
+    visibility: visible;
+}
+
+.holderControls.error input{
+    border-color: #e74c3c;
+    visibility: visible;
+}
