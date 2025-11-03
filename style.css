@@ -87,8 +87,10 @@ button:hover{
 .holderControls small{
     visibility: hidden;
     position: absolute;
-    bottom: 0;
-    left: 0;
+    color: #e74c3c;
+    font-size: 13px;
+    bottom: 2px;
+    left: 16px;
 }
 
 .holderControls.success input{

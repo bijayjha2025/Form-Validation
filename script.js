@@ -1,41 +1,41 @@
 
-const signUpForm = document.getElementById("signUpForm");
+const form = document.getElementById("signUpForm");
 const nameInput = document.getElementById("name");
 const emailInput = document.getElementById("email");
 const phoneInput = document.getElementById("phone");
 const passwordInput = document.getElementById("password");
 const confirmPasswordInput = document.getElementById("confirmPassword");
 const viewPassword = document.getElementById("viewPassword");
-const submitButton = document.getElementById("submitButton");
+
 
 viewPassword.addEventListener("click", ()=>{
-    const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
-    passwordInput.setAttribute("type", type);
+    const type = passwordInput.type === "password" ? "text" : "password";
+    passwordInput.type = type;
     viewPassword.textContent = type ==="password" ? "👁️" : "🙈";
 });
 
 
-signUpForm.addEventListener("submit", (e) => {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
   validateInputs();
 });
 
-function validateInputs {
+function validateInputs() {
  const name = nameInput.value.trim();
  const phone = phoneInput.value.trim();
  const email = emailInput.value.trim();
  const password = passwordInput.value.trim();
- const confirm = confirmPasswordInput.value.trim();
+ const confirmPassword = confirmPasswordInput.value.trim();
 
  if (name === ""){
     setError(nameInput, "Full name is required");
- }else if (!/^[A-Za-z\s]+$/.test(name)){
+ } else if (!/^[A-Za-z\s]+$/.test(name)){
     setError(nameInput, "Name can only contain letters");
- }else{
+ } else{
     setSuccess(nameInput);
  }
 
- if(email === ""){
+ if (email === ""){
     setError(emailInput, "Email is required");
  }
  else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
@@ -77,20 +77,20 @@ function validateInputs {
 }
 
 function setError(input, message) {
-  const holder = input.parentElement;
+  const holder = input.closest(".holderControls");
+  const small = holder.querySelector("small");
+  small.innerText = message;
   holder.classList.add("error");
   holder.classList.remove("success");
-  const small = holder.querySelector("small");
-  small.textContent = message;
   small.style.visibility = "visible";
 }
 
 function setSuccess(input) {
-  const holder = input.parentElement;
+  const holder = input.closest(".holderControls");
+  const small = holder.querySelector("small");
+  small.innerText = "";
   holder.classList.add("success");
   holder.classList.remove("error");
-  const small = holder.querySelector("small");
-  small.textContent = "";
   small.style.visibility = "hidden";
 }
 
