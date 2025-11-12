@@ -27,19 +27,25 @@ function validateInputs() {
  const password = passwordInput.value.trim();
  const confirmPassword = confirmPasswordInput.value.trim();
 
+ let isDetailsValid = true;
+
  if (name === ""){
     setError(nameInput, "Full name is required");
+    isDetailsValid = false;
  } else if (!/^[A-Za-z\s]+$/.test(name)){
     setError(nameInput, "Name can only contain letters");
+    isDetailsValid = false;
  } else{
     setSuccess(nameInput);
  }
 
  if (email === ""){
     setError(emailInput, "Email is required");
+    isDetailsValid = false;
  }
  else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
     setError(emailInput, "Please enter a valid email address");
+    isDetailsValid = false;
  }
  else{
     setSuccess(emailInput);
@@ -47,9 +53,11 @@ function validateInputs() {
 
  if (phone===""){
     setError(phoneInput, "Phone number is required");
+    isDetailsValid = false;
  }
  else if(!/^[0-9]{10}$/.test(phone)){
     setError(phoneInput, "Phone number must be of 10 digits");
+    isDetailsValid = false;
  }
  else{
     setSuccess(phoneInput);
@@ -57,9 +65,11 @@ function validateInputs() {
 
  if(password===""){
     setError(passwordInput, "Password can not be empty");
+    isDetailsValid = false;
  }
  else if(!/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/.test(password)){
     setError(passwordInput, "Min 8 chars, 1 capital, 1 number, 1 special character");
+    isDetailsValid = false;
  }
  else{
     setSuccess(passwordInput);
@@ -67,13 +77,28 @@ function validateInputs() {
 
  if(confirmPassword === "") {
     setError(confirmPasswordInput, "Please confirm your password");
+    isDetailsValid = false;
  }
  else if(confirmPassword !== password) {
     setError(confirmPasswordInput, "Passwords do not match");
+    isDetailsValid = false;
   } 
  else{
     setSuccess(confirmPasswordInput);
   }
+
+const submissionMessage = document.getElementById("submissionMessage");
+if(isDetailsValid){
+   submissionMessage.textContent = "Form submitted successfully!";
+   submissionMessage.style.color = "green";
+   submissionMessage.style.visibility = "visible";
+   submissionMessage.style.opacity = "1";
+
+}
+else{
+   submissionMessage.textContent= "";
+   submissionMessage.style.visibility = "hidden";
+}
 }
 
 function setError(input, message) {
@@ -93,4 +118,3 @@ function setSuccess(input) {
   holder.classList.remove("error");
   small.style.visibility = "hidden";
 }
-
