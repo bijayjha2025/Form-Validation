@@ -94,11 +94,19 @@ if(isDetailsValid){
    submissionMessage.style.visibility = "visible";
    submissionMessage.style.opacity = "1";
 
+   form.reset();
+
+   setTimeout(() => {
+   submissionMessage.style.opacity = "0";
+   submissionMessage.style.visibility = "hidden";
+  }, 3000);
 }
 else{
    submissionMessage.textContent= "";
    submissionMessage.style.visibility = "hidden";
 }
+
+
 }
 
 function setError(input, message) {
