@@ -105,8 +105,6 @@ else{
    submissionMessage.textContent= "";
    submissionMessage.style.visibility = "hidden";
 }
-
-
 }
 
 function setError(input, message) {
